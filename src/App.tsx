@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UserComponent from './UserComponent';
 
 import WaifuPoll from './Poll';
 import Header from './Header';
