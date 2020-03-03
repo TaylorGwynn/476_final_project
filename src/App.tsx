@@ -5,12 +5,11 @@ import WaifuPoll from './Poll';
 import Header from './Header';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Submissions from './Submissions';
-<<<<<<< HEAD
 import UserComponent from './UserComponent';
 import FakeLogin from './FakeLogin';
-=======
+
 import Leaderboards from './Leaderboards';
->>>>>>> 839f5770693b4d62519ea6fdf71478eb7647b55d
+
 
 let loggedIn: boolean = false;
 
@@ -54,12 +53,9 @@ class App extends Component {
             <Route path="/home"/>
             <Route path="/poll"><WaifuPoll pollQuestion={this.state.pollQuestion} pollAnswers={this.state.pollAnswers}/></Route>
             <Route path="/submissions"><Submissions newEntry={this.newEntry}/></Route>
-<<<<<<< HEAD
             <Route path="/login"><FakeLogin/></Route>
             <Route path="/usersettings"><UserComponent/></Route>
-=======
             <Route path="/leaderboards"><Leaderboards/></Route>
->>>>>>> 839f5770693b4d62519ea6fdf71478eb7647b55d
           </Switch>
           </div>
         <div className="footer">Prototype by Sophie Kujo, Sophie Wang, and Tyler Gwynn</div>
