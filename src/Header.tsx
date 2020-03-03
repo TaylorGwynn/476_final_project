@@ -19,6 +19,7 @@ export default class Header extends Component<Properties> {
             <div className='header'>
                 <Link to="/poll">Poll</Link>
                 <Link to="/submissions">Submissions</Link>
+                <Link to="/leaderboards">Leaderboards</Link>
                 <div id="Account">{loggedIn ? <Link to="/usersettings">User Settings</Link> : <Link to="/login">Login</Link>}</div>
             </div>
         )

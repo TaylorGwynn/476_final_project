@@ -5,15 +5,28 @@ import WaifuPoll from './Poll';
 import Header from './Header';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Submissions from './Submissions';
+import Leaderboards from './Leaderboards';
 
 let loggedIn: boolean = false;
+
+export class Answer {
+  option: string;
+  votes: number;
+  image : string | undefined;
+
+  constructor(option: string, image? : string | undefined) {
+    this.option = option;
+    this.votes = 0;
+    this.image = image;
+  }
+}
 
 class App extends Component {
   state = {
     pollQuestion:'Who is the better waifu?',
     pollAnswers: [
-      { option: 'Rem', votes: 0 },
-      { option: 'Ram', votes: 0 },
+      new Answer("Rem"),
+      new Answer("Ram"),
     ],
   }
   constructor(props: any) {
@@ -24,7 +37,7 @@ class App extends Component {
     for (var answer in this.state.pollAnswers) {
       if (this.state.pollAnswers[answer].option === data.option) return false
     }
-    this.state.pollAnswers.push(data);
+    this.state.pollAnswers.push(new Answer(data.option, data.image));
     return true
   }
   render() {
@@ -36,6 +49,7 @@ class App extends Component {
             <Route path="/home"/>
             <Route path="/poll"><WaifuPoll pollQuestion={this.state.pollQuestion} pollAnswers={this.state.pollAnswers}/></Route>
             <Route path="/submissions"><Submissions newEntry={this.newEntry}/></Route>
+            <Route path="/leaderboards"><Leaderboards/></Route>
           </Switch>
           </div>
         <div className="footer">Prototype by Sophie Kujo, Sophie Wang, and Tyler Gwynn</div>
