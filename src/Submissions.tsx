@@ -41,7 +41,7 @@ export default class Submissions extends Component<any, any> {
             })
             return
         }
-        let result = this.props.newEntry({option: this.state.entryName, votes: 0})
+        let result = this.props.newEntry({option: this.state.entryName, image: this.state.image})
         if (!result) {
             this.setState({ error: "This entry already exists in the poll!" })
         } else {
@@ -74,7 +74,7 @@ export default class Submissions extends Component<any, any> {
                         </div>
                         <div id="nameField">
                             <h1>Submit your entry to the poll!</h1>
-                            <Form>
+                            <Form onSubmit={(e : any) => {e.preventDefault()}}>
                             <Form.Group>
                                 <Form.Label>Waifu Name</Form.Label>
                                 <Form.Control type="text" placeholder="Waifu Name" onChange={this.setEntryName}/>
