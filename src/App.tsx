@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UserComponent from './UserComponent';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         >
           Learn React
         </a>
+        {/* <a href="/userPage.html">User Page</a> */}
+        <UserComponent/>
       </header>
     </div>
   );
