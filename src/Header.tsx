@@ -9,15 +9,16 @@ export default class Header extends Component<Properties> {
 
     constructor(props : Properties) {
         super(props);
-        this.setState(state => ({
+        this.state = {
             loggedIn: props.loggedIn
-        }))
+        }
     }
     render () {
         const { loggedIn } = this.props;
         return (
             <div className='header'>
                 <Link to="/poll">Poll</Link>
+                <Link to="/submissions">Submissions</Link>
                 <div id="Account">{loggedIn ? <Link to="/usersettings">User Settings</Link> : <Link to="/login">Login</Link>}</div>
             </div>
         )

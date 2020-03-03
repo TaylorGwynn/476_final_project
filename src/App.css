@@ -30,7 +30,6 @@
 
 body {
   background-image: url("assets/background.png");
-  height:2000px; /* TESTMARKER */
 }
 
 @keyframes App-logo-spin {
@@ -42,7 +41,7 @@ body {
   }
 }
 
-.header + .container {
+.header + .containerBody {
   margin-top: 60px !important
 }
 

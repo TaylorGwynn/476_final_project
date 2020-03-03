@@ -2,30 +2,23 @@ import React, { Component } from "react";
 import Poll from 'react-polls'
 import "./Poll.css";
 
-const pollQuestion = 'Who is the better waifu?'
-const pollAnswers = [
-  { option: 'Rem', votes: 0 },
-  { option: 'Ram', votes: 0 },
-]
+
 
 interface Properties {
-
+  pollQuestion: string,
+  pollAnswers: [],
 }
 
-
-export default class WaifuPoll extends Component<{}, {pollAnswers: any}> {
+export default class WaifuPoll extends Component<any, any> {
         // Setting answers to state to reload the component with each vote
-    constructor(props : Properties) {
-        super(props)
-        this.state = {
-            pollAnswers: [...pollAnswers]
-          }
+    constructor(props : any, state : any) {
+        super(props, state)
+        console.log(props)
     }
     
     handleVote = (voteAnswer: any) => {
         // TODO: INTERACTION WITH SERVER SHOULD BE HANDLED HERE
-        const { pollAnswers } = this.state
-        const newPollAnswers = pollAnswers.map((answer: any) => {
+        const newPollAnswers = this.props.pollAnswers.map((answer: any) => {
           if (answer.option === voteAnswer) answer.votes++
           return answer
         })
@@ -35,10 +28,9 @@ export default class WaifuPoll extends Component<{}, {pollAnswers: any}> {
       }
 
       render () {
-        const { pollAnswers } = this.state
         return (
           <div className="Poll">
-            <Poll question={pollQuestion} answers={pollAnswers} onVote={this.handleVote} noStorage/>
+            <Poll question={this.props.pollQuestion} answers={this.props.pollAnswers} onVote={this.handleVote} noStorage/>
           </div>
         );
       }
