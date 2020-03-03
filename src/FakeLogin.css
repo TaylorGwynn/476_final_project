@@ -1,0 +1,59 @@
+#loginpage {
+  margin: 0 auto 0;
+  width: 75%;
+}
+
+div {
+  display: block;
+}
+
+.container {
+  margin: 10px auto 10px;
+  background-color: white;
+  display: flex;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  border: 3px solid black;
+}
+
+#profile-picture {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  clear: both;
+  margin: 0;
+  border: 2.5px solid black;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.controlsBox {
+  position: relative;
+  width: 50%;
+  height: fit-content;
+  clear: both;
+  margin: auto;
+}
+
+#imageField {
+  width: 200px;
+  float:left;
+}
+
+#entry {
+  width: 100%;
+}
+
+#nameField {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+/* .errormsg .form-label{
+  font-weight: bold;
+  color: #AA0000;
+} */

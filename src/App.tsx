@@ -5,6 +5,8 @@ import WaifuPoll from './Poll';
 import Header from './Header';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Submissions from './Submissions';
+import UserComponent from './UserComponent';
+import FakeLogin from './FakeLogin';
 
 let loggedIn: boolean = false;
 
@@ -36,6 +38,8 @@ class App extends Component {
             <Route path="/home"/>
             <Route path="/poll"><WaifuPoll pollQuestion={this.state.pollQuestion} pollAnswers={this.state.pollAnswers}/></Route>
             <Route path="/submissions"><Submissions newEntry={this.newEntry}/></Route>
+            <Route path="/login"><FakeLogin/></Route>
+            <Route path="/usersettings"><UserComponent/></Route>
           </Switch>
           </div>
         <div className="footer">Prototype by Sophie Kujo, Sophie Wang, and Tyler Gwynn</div>
