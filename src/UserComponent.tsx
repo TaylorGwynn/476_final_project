@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './UserComponent.css';
+import { Form, Button, Table, Dropdown } from "react-bootstrap";
 import { userInfo } from 'os';
 // import axios from 'axios';
 
@@ -46,15 +47,56 @@ export default class UserComponent extends Component<UserProps,MyState> {
     <div className="logoutButton">{profilePic} <div className="logoutText"><p>Logout!</p></div></div>)
 
     const topBar = (<div className="topBar">{logout}</div>)
-    return (<div className="compBox">
-    <h3>First Component, Hewwlo?:</h3>
-    
-        {/* {this.props.displaytext} */}
-        {topBar}<br/>
-        {elementt}
-        <p>Email: {this.state.email}</p>
-        {/* {this.state.username}<br/> */}
-    {/* <button click="newMeme()">New Meme</button> */}
-    </div>)
+    return (<div>
+      <div id="settingspage">
+                <div className="container">
+                    <div id="entry">
+                        
+      <Form>
+        <h1>Settings</h1>
+        <img className="pfp"src={this.state.profilepicpath}/>
+        <Button variant="success">Change Profile Picture</Button>
+        <Table striped bordered>
+          <thead>
+          <tr>
+            <td className="first">Username </td>
+            <td>{this.state.username}
+        <Button variant="secondary">Change Username</Button></td>
+          </tr>
+          <tr>
+            <td className="first">Email </td>
+            <td>{this.state.email} 
+        <Button variant="secondary">Change Email</Button></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><Button variant="secondary">Change Password</Button></td>
+          </tr>
+          <tr>
+            <td className="first">Theme</td>
+            <td>
+            <Dropdown>
+              <Dropdown.Toggle variant="info" id="dropdown-basic">
+                Select a Theme
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Marisa</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Asuka</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">DIO</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            </td>
+          </tr>
+          
+          </thead>
+        </Table>
+        <Button variant="primary">Logout</Button>
+        </Form>
+        
+        </div>
+                    </div>
+                </div>
+            </div>)
     }
   }
