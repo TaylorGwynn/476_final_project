@@ -1,3 +1,21 @@
+NOTE TO MARKER:
+This was made in TypeScript and React w/ React Bootstrap.
+The libraries are not included in the submission as it would be too large.
+Please install them seperately as described below.
+
+- Install Node.js https://nodejs.org/en/
+- Inside working directory, use npm to install required libraries
+npm install react --save
+npm install react-dom --save
+npm install -g typescript
+npm i -D @types/react
+- Start the project on localhost:3000 with the following command
+npm start
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
