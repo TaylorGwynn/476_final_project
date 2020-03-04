@@ -72,6 +72,8 @@ export default class UserComponent extends Component<UserProps,MyState> {
             
         </Form.Group>
         <Button variant="primary" onClick={this.login}>Submit</Button>
+        <hr/>
+        <Button variant="warning" >Register</Button>
         </Form>
         </div>
                     </div>
