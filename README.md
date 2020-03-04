@@ -1,6 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Endure you have npm and node installed to run on your local machine.
 
-## Available Scripts
+## Setting up
+
+Run the start up script to download node modules
+
+### `npm run-script first-time`
+
+## Running the Project
 
 In the project directory, you can run:
 
