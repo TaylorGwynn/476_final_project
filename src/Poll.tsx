@@ -20,10 +20,14 @@ export default class WaifuPoll extends Component<any, any> {
       }
 
       render () {
+        
+        let polls = this.props.polls;
         return (
+
           <div className="Poll">
             <Poll question={this.props.pollQuestion} answers={this.props.pollAnswers} onVote={this.handleVote} noStorage/>
           </div>
+
         );
       }
 }

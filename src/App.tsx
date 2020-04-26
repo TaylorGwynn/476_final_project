@@ -25,34 +25,50 @@ export class Answer {
   }
 }
 
+export class Poll {
+  pollQuestion: string;
+  pollAnswers: Array<Answer>;
+  constructor(pollQuestion: string, pollAnswers: Array<Answer>){
+    this.pollQuestion = pollQuestion;
+    this.pollAnswers = pollAnswers;
+  }
+}
 class App extends Component {
   state = {
-    pollQuestion:'Who is the better waifu?',
-    pollAnswers: [
-      new Answer("Rem"),
-      new Answer("Ram"),
-    ],
+    polls: [new Poll( "Who is the better waifu?", [new Answer("Rem"), new Answer("Ram")] ) ],
+    activePollIndex: 0,
   }
   constructor(props: any) {
     super(props);
   }
 
   newEntry = (data: any) => {
-    for (var answer in this.state.pollAnswers) {
-      if (this.state.pollAnswers[answer].option === data.option) return false
+    let poll = this.state.polls[this.state.activePollIndex]; //select the active poll
+    for (var answer in poll.pollAnswers) {
+      if (poll.pollAnswers[answer].option === data.option) return false
     }
-    this.state.pollAnswers.push(new Answer(data.option, data.image));
+    poll.pollAnswers.push(new Answer(data.option, data.image));
     return true
   }
+  newPoll = (data:any) =>{
+    this.state.polls.push(new Poll(data.pollEntryName,[]));
+    // this.state.activePollIndex += 1; //would be to make it the "active poll" but I haven't added support
+    console.log("this.state.activePollIndex: ",this.state.activePollIndex);
+    return true;
+  }
+  getPollTitle = () =>{
+    return this.state.polls[this.state.activePollIndex].pollQuestion;
+  }
   render() {
+    let poll = this.state.polls[this.state.activePollIndex]; //select the active poll
     return (
     <BrowserRouter>
         <Header loggedIn={loggedIn}/>
         <div className="containerBody">
           <Switch>
             <Route path="/home"/>
-            <Route path="/poll"><WaifuPoll pollQuestion={this.state.pollQuestion} pollAnswers={this.state.pollAnswers}/></Route>
-            <Route path="/submissions"><Submissions newEntry={this.newEntry}/></Route>
+            <Route path="/poll"><WaifuPoll polls={this.state.polls}pollQuestion={poll.pollQuestion} pollAnswers={poll.pollAnswers}/></Route>
+            <Route path="/submissions"><Submissions newEntry={this.newEntry} newPoll={this.newPoll} activePollTitle={this.getPollTitle()}/></Route>
             <Route path="/login"><FakeLogin/></Route>
             <Route path="/usersettings"><UserComponent/></Route>
             <Route path="/leaderboards"><Leaderboards/></Route>

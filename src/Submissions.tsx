@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Submissions extends Component<any, any> {
     private readonly inputOpenFileRef: React.RefObject<HTMLInputElement> = React.createRef();
-    state = { image: undefined, entryName: "", pollEntryName: "", error: "", submissionMsg: "", pollSubmissionMsg: ""}
+    state = { image: undefined, entryName: "", pollEntryName: "", error: "", submissionMsg: "", pollSubmissionMsg: "", activePollTitle: ""}
     constructor(props: any, state: any) {
-        super(props)
+        super(props);
         this.handleClick.bind(this);
     }
 
@@ -49,6 +49,8 @@ export default class Submissions extends Component<any, any> {
         return <Form.Label>{this.state.pollSubmissionMsg}</Form.Label>
     }
 
+    
+
     submitEntry = () => {
         if (this.state.entryName === "") {
             this.setState({
@@ -70,13 +72,12 @@ export default class Submissions extends Component<any, any> {
             })
             return
         }
-        //TODO make this into a new poll rather than a new entry!
-        // let result = this.props.newEntry({option: this.state.pollEntryName, image: this.state.image})
-        // if (!result) {
-        //     this.setState({ error: "This Poll already exists!" })
-        // } else {
-        //     this.setState({ pollSubmissionMsg: "Successfully added your Poll entry?" })
-        // }
+        let result = this.props.newPoll(this.state.pollEntryName)
+        if (!result) {
+            this.setState({ error: "This Poll already exists!" })
+        } else {
+            this.setState({ pollSubmissionMsg: "Successfully added your Poll entry?" })
+        }
     }
 
     render() {
@@ -104,6 +105,8 @@ export default class Submissions extends Component<any, any> {
                         </div>
                         <div id="nameField">
                             <h1>Submit your entry to the poll!</h1>
+                            <h2>Submitting to: {this.props.activePollTitle}</h2> 
+                            {/* <h2>Submitting to: {this.state.activePollTitle}</h2>  */}
                             <Form onSubmit={(e : any) => {e.preventDefault()}}>
                             <Form.Group>
                                 <Form.Label>Waifu Name</Form.Label>
