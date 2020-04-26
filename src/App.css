@@ -29,7 +29,7 @@
 }
 
 body {
-  background-image: url("assets/background.png");
+  background-image: url("assets/darkwood.png");
 }
 
 @keyframes App-logo-spin {
@@ -63,7 +63,7 @@ body {
   position: fixed;
   top: 0;
   border-bottom: 3px solid black;
-  background-color: turquoise;
+  background-color: rgb(103, 135, 153);
   padding: 5px;
   opacity: 0.75;
 }
